@@ -8,6 +8,7 @@ import com.raahi.youtubeapi.YouTubeAPIApplication
 import com.raahi.youtubeapi.data.DataManager
 import com.raahi.youtubeapi.data.YouTubeAPIDataManager
 import com.raahi.youtubeapi.data.network.ApiHelper
+import com.raahi.youtubeapi.data.network.YouTubeApiHelper
 import com.raahi.youtubeapi.di.ApplicationContext
 import dagger.Module
 import dagger.Provides
@@ -30,10 +31,10 @@ class ApplicationModule(private val application: YouTubeAPIApplication) {
         return application
     }
 
-    @get:Singleton
-    @get:Provides
-    val oKHttpClient: OkHttpClient
-        get() = OkHttpClient.Builder()
+    @Provides
+    @Singleton
+    fun getOKHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder()
             .addInterceptor { chain ->
                 chain.proceed(
                     chain.request()
@@ -45,6 +46,7 @@ class ApplicationModule(private val application: YouTubeAPIApplication) {
             .readTimeout(20, TimeUnit.SECONDS)
             .writeTimeout(20, TimeUnit.SECONDS)
             .build()
+    }
 
     @Provides
     @Singleton
@@ -59,7 +61,7 @@ class ApplicationModule(private val application: YouTubeAPIApplication) {
 
     @Provides
     @Singleton
-    fun getApiHelper(apiHelper: YouTubeAPIDataManager): ApiHelper {
+    fun getApiHelper(apiHelper: YouTubeApiHelper): ApiHelper {
         return apiHelper
     }
 

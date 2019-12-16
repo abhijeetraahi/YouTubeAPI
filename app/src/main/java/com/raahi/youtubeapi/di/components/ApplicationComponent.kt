@@ -3,6 +3,7 @@ package com.raahi.youtubeapi.di.components
 import android.app.Application
 import android.content.Context
 import com.raahi.youtubeapi.YouTubeAPIApplication
+import com.raahi.youtubeapi.data.DataManager
 import com.raahi.youtubeapi.di.ApplicationContext
 import com.raahi.youtubeapi.di.modules.ApplicationModule
 import dagger.Component
@@ -19,5 +20,5 @@ interface ApplicationComponent {
 
     fun application(): Application
 
-    //fun dataManager(): DataManager
+    fun dataManager(): DataManager
 }
