@@ -9,7 +9,6 @@ import com.raahi.youtubeapi.ui.home.HomePresenter
 import com.raahi.youtubeapi.ui.home.adapter.HomeAdapter
 import com.raahi.youtubeapi.util.rx.SchedulerProvider
 import com.raahi.youtubeapi.util.rx.YouTubeAPISchedulerProvider
-
 import dagger.Module
 import dagger.Provides
 import io.reactivex.disposables.CompositeDisposable

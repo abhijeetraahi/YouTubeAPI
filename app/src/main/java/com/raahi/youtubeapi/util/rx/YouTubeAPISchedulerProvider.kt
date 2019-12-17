@@ -6,7 +6,8 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class YouTubeAPISchedulerProvider @Inject constructor(): SchedulerProvider {
+class YouTubeAPISchedulerProvider @Inject constructor():
+    SchedulerProvider {
 
     override fun ui(): Scheduler {
         return AndroidSchedulers.mainThread()
